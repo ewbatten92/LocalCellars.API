@@ -7,6 +7,6 @@ namespace LocalCellars.API.Data
     {
         public DataContext(DbContextOptions options) : base(options){}
 
-        public DbSet<Value> MyProperty { get; set; }
+        public DbSet<Value> Values { get; set; }
     }
 }

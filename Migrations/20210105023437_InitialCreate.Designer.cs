@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocalCellars.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210103232944_InitialCreate")]
+    [Migration("20210105023437_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,7 +28,7 @@ namespace LocalCellars.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MyProperty");
+                    b.ToTable("Values");
                 });
 #pragma warning restore 612, 618
         }
