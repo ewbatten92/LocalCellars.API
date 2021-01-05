@@ -31,10 +31,10 @@ namespace LocalCellars.API
             services.AddDbContext<DataContext>(x => x.UseSqlite
             (Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
-           /* services.AddSwaggerGen(c =>
+           services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LocalCellars.API", Version = "v1" });
-            });*/
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +44,7 @@ namespace LocalCellars.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-               // app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LocalCellars.API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LocalCellars.API v1"));
             }
 
           //  app.UseHttpsRedirection();
