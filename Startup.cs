@@ -35,6 +35,7 @@ namespace LocalCellars.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LocalCellars.API", Version = "v1" });
             });
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,11 +52,14 @@ namespace LocalCellars.API
 
             app.UseRouting();
 
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+               // endpoints.MapFallbackToController("Index","Fallback");
             });
         }
     }
