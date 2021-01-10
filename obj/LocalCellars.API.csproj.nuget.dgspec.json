@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ethan\\Projects\\LocalCellars\\LocalCellars.API\\LocalCellars.API.csproj": {}
+    "c:\\Users\\Ethan\\Projects\\LocalCellars\\LocalCellars.API\\LocalCellars.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ethan\\Projects\\LocalCellars\\LocalCellars.API\\LocalCellars.API.csproj": {
+    "c:\\Users\\Ethan\\Projects\\LocalCellars\\LocalCellars.API\\LocalCellars.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ethan\\Projects\\LocalCellars\\LocalCellars.API\\LocalCellars.API.csproj",
+        "projectUniqueName": "c:\\Users\\Ethan\\Projects\\LocalCellars\\LocalCellars.API\\LocalCellars.API.csproj",
         "projectName": "LocalCellars.API",
-        "projectPath": "C:\\Users\\Ethan\\Projects\\LocalCellars\\LocalCellars.API\\LocalCellars.API.csproj",
+        "projectPath": "c:\\Users\\Ethan\\Projects\\LocalCellars\\LocalCellars.API\\LocalCellars.API.csproj",
         "packagesPath": "C:\\Users\\Ethan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ethan\\Projects\\LocalCellars\\LocalCellars.API\\obj\\",
+        "outputPath": "c:\\Users\\Ethan\\Projects\\LocalCellars\\LocalCellars.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ethan\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -64,9 +64,17 @@
               "target": "Package",
               "version": "[5.0.1, )"
             },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.8.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.8.0, )"
             }
           },
           "imports": [
