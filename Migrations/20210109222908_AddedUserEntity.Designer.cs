@@ -3,14 +3,16 @@ using System;
 using LocalCellars.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LocalCellars.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210109222908_AddedUserEntity")]
+    partial class AddedUserEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,8 +27,8 @@ namespace LocalCellars.API.Migrations
                     b.Property<byte[]>("PasswordHash")
                         .HasColumnType("BLOB");
 
-                    b.Property<byte[]>("PasswordSalt")
-                        .HasColumnType("BLOB");
+                    b.Property<byte>("PasswordSalt")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Username")
                         .HasColumnType("TEXT");
