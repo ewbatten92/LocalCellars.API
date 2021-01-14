@@ -8,7 +8,6 @@ C:\Users\Ethan\Projects\LocalCellars\LocalCellars.API\bin\Debug\net5.0\LocalCell
 C:\Users\Ethan\Projects\LocalCellars\LocalCellars.API\bin\Debug\net5.0\ref\LocalCellars.API.dll
 C:\Users\Ethan\Projects\LocalCellars\LocalCellars.API\bin\Debug\net5.0\LocalCellars.API.pdb
 C:\Users\Ethan\Projects\LocalCellars\LocalCellars.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\Ethan\Projects\LocalCellars\LocalCellars.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
 C:\Users\Ethan\Projects\LocalCellars\LocalCellars.API\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Ethan\Projects\LocalCellars\LocalCellars.API\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
 C:\Users\Ethan\Projects\LocalCellars\LocalCellars.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
