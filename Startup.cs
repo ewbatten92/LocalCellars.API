@@ -1,12 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using LocalCellars.API.Data;
+using LocalCellars.API.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +29,17 @@ namespace LocalCellars.API
         {
             Configuration = configuration;
         }
+
+        // public Startup(IWebHostEnvironment env)
+        // {
+        //     var builder = new ConfigurationBuilder()
+        //         .SetBasePath(env.ContentRootPath)
+        //         .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        //         .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+        //         .AddEnvironmentVariables();
+
+        //     Configuration = builder.Build();
+        // }
 
         public IConfiguration Configuration { get; }
 
@@ -67,6 +82,30 @@ namespace LocalCellars.API
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LocalCellars.API v1"));
+            }
+            //The exception handler adds middleware to our pipline that catches exceptions/ logs them
+            //Then reexecutes the request in an alt pipleline
+            //Builder.run adds middleware delegates to the apps req pipeline
+            //Context in this case is related to our HTTP req/res
+            //We grab the statuscode and if not null then we store the error and details in an error var
+            //Then we write the error message in our error response message
+            else
+            {
+                app.UseExceptionHandler(builder => {
+                    builder.Run(async context => {
+                        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                        
+                        var error = context.Features.Get<IExceptionHandlerFeature>();
+                        if (error != null)
+                        {
+                            //Add extension CORS header into resp
+                            context.Response.AddApplicationError(error.Error.Message);
+                            //Write the error
+                            await context.Response.WriteAsync(error.Error.Message);
+                        }
+                        
+                    });
+                });
             }
 
           //  app.UseHttpsRedirection();

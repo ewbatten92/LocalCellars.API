@@ -32,7 +32,7 @@ namespace LocalCellars.API.Controllers
             userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
             //Check if username exists in db
             if (await _repo.UserExists(userForRegisterDto.Username))
-                return BadRequest("Username already exists");
+                return BadRequest("UserName Already Exists.");
             // if not then create a new user to pass to the register method
             var userToCreate = new User
             {
@@ -48,6 +48,7 @@ namespace LocalCellars.API.Controllers
 
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
+            
             var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
             
             if (userFromRepo == null)
